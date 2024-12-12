@@ -57,6 +57,7 @@ private slots:
     void on_Shrink_ResizeButton_clicked();
     void on_CreatePlaylistButton_clicked();
     void onDirectoryChanged(const QString &path);
+    void onSongsDirectoryChanged(const QString &path);
     void on_PlaylistsListWidget_itemClicked(QListWidgetItem *item);
     void onSearchBarTextChanged(const QString &searchText);
 
@@ -89,6 +90,7 @@ private:
     QPropertyAnimation *animation;
     PlaylistManager *playlistManager;
     QFileSystemWatcher *m_directoryWatcher;
+    QFileSystemWatcher *m_songDirectoryWatcher;
     SongItem *songItem;
     SearchManager *searchManager;
     PlayCountManager* playcountmanager;

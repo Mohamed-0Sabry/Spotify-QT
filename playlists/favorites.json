@@ -1,9 +1,10 @@
 {
     "createdAt": "2024-12-10T21:23:13",
     "description": "Your favorite songs collection",
-    "lastModified": "2024-12-11T14:00:07",
+    "lastModified": "2024-12-12T12:15:58",
     "name": "Favorites",
     "songPaths": [
-        "D:/Study/ENGINEERING/Computer Engineering/Programming/Project/spoti/Songs/EminemWithoutMe.mp3"
+        "D:/Study/ENGINEERING/Computer Engineering/Programming/Project/spoti/Songs/EminemWithoutMe.mp3",
+        "D:/Study/ENGINEERING/Computer Engineering/Programming/Project/spoti/Songs/NF.mp3"
     ]
 }

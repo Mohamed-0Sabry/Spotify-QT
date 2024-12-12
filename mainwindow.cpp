@@ -28,13 +28,6 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-
-    // MainWindow *mainwindow = new MainWindow(this);
-    connect(playlistManager, &PlaylistManager::playlistSaved, this, &MainWindow::fetchPlaylistsFromFolder);
-    m_directoryWatcher = new QFileSystemWatcher(this);
-    m_directoryWatcher->addPath(playlistDirectory);
-    connect(m_directoryWatcher, &QFileSystemWatcher::directoryChanged, this, &MainWindow::onDirectoryChanged);
-
     // Centralize initialization
     initializeUI();
     setupListWidgets();
@@ -45,24 +38,11 @@ MainWindow::MainWindow(QWidget *parent)
     // Create 'covers' directory
     QDir().mkdir("covers");
 
-    // Populate playlists
 
     // Load songs
     fetchSongsFromFolder(songsDirectory);
     fetchPlaylistsFromFolder(playlistDirectory);
     loadFavoriteSongsStatus();
-
-    connect(this, &MainWindow::songsLoaded, this, &MainWindow::loadFavoriteSongsStatus);
-
-    connect(this, &MainWindow::songsLoaded, this, [this]() {
-        populateSongs(ui->SongsListWidget, allSongs);
-        if (m_audioControls) {
-            m_audioControls->updateSongList(allSongs);
-        }
-        // Add this line here too to ensure favorites are loaded after songs
-        loadFavoriteSongsStatus();
-        qDebug() << "Songs size is:" << allSongs.size();
-    });
 
 }
 
@@ -112,7 +92,6 @@ void MainWindow::loadFavoriteSongsStatus() {
 
 
     PlaylistData favoritePlaylist = playlistManager->getPlaylist("Favorites");
-    qDebug() << "Favorites playlist song paths:" << favoritePlaylist.songPaths;
     for (auto& song : allSongs) {
         song.isFavorited = favoritePlaylist.songPaths.contains(song.AudiofilePath);
     }
@@ -199,6 +178,45 @@ void MainWindow::setupConnections()
     connect(m_audioControls, &AudioControls::songStartedPlaying, this, &MainWindow::onSongStartedPlaying);
     updateMostPlayedList();
 
+
+    // songs Loaded Signal connections
+    connect(this, &MainWindow::songsLoaded, this, [this]() {
+        populateSongs(ui->SongsListWidget, allSongs);
+        if (m_audioControls) {
+            m_audioControls->updateSongList(allSongs);
+        }
+
+        updateMostPlayedList(); // Add this line
+        loadFavoriteSongsStatus();
+        qDebug() << "Songs size is:" << allSongs.size();
+    });
+
+    connect(this, &MainWindow::songsLoaded, this, &MainWindow::loadFavoriteSongsStatus);
+    connect(this, &MainWindow::songsLoaded, this, [this]() {
+        populateSongs(ui->SongsListWidget, allSongs);
+        if (m_audioControls) {
+            m_audioControls->updateSongList(allSongs);
+        }
+        // Add this line here too to ensure favorites are loaded after songs
+        loadFavoriteSongsStatus();
+        qDebug() << "Songs size is:" << allSongs.size();
+    });
+
+    // connect saving playlist with Fetching playlists
+    connect(playlistManager, &PlaylistManager::playlistSaved, this, &MainWindow::fetchPlaylistsFromFolder);
+
+    // playlist Watcher
+    m_directoryWatcher = new QFileSystemWatcher(this);
+    m_directoryWatcher->addPath(playlistDirectory);
+    connect(m_directoryWatcher, &QFileSystemWatcher::directoryChanged, this, &MainWindow::onDirectoryChanged);
+
+    // songs Watcher
+    m_songDirectoryWatcher = new QFileSystemWatcher(this);
+    m_songDirectoryWatcher->addPath(songsDirectory);
+    connect(m_songDirectoryWatcher, &QFileSystemWatcher::directoryChanged, this, &MainWindow::onSongsDirectoryChanged);
+
+
+
 }
 
 void MainWindow::setupIcons()
@@ -224,6 +242,9 @@ void MainWindow::setupIcons()
 void MainWindow::fetchSongsFromFolder(const QString &folderPath)
 {
     QDir dir(folderPath);
+    allSongs.clear();
+    songs.clear();
+    ui->SongsListWidget->clear();
     QStringList filters = {"*.mp3", "*.wav"};
     QFileInfoList fileList = dir.entryInfoList(filters, QDir::Files);
     int filesToLoad = fileList.size();
@@ -250,17 +271,6 @@ void MainWindow::fetchSongsFromFolder(const QString &folderPath)
                     }
                 });
     }
-
-    connect(this, &MainWindow::songsLoaded, this, [this]() {
-        populateSongs(ui->SongsListWidget, allSongs);
-        if (m_audioControls) {
-            m_audioControls->updateSongList(allSongs);
-        }
-        updateMostPlayedList(); // Add this line
-        loadFavoriteSongsStatus();
-        qDebug() << "Songs size is:" << allSongs.size();
-    });
-
 }
 
 void MainWindow::fetchPlaylistsFromFolder(const QString &folderPath) {
@@ -306,6 +316,23 @@ void MainWindow::onPlaylistSaved() {
 void MainWindow::onDirectoryChanged(const QString &path) {
     qDebug() << "It should be fetching again";
     fetchPlaylistsFromFolder(path);
+}
+
+void MainWindow::onSongsDirectoryChanged(const QString &path)
+{
+    qDebug() << "On Songs Directory changed called";
+
+    // Add a small delay to ensure file operations are complete
+    QTimer::singleShot(100, this, [this, path]() {
+        QDir dir(path);
+        QStringList filters = {"*.mp3", "*.wav"};
+        QFileInfoList fileList = dir.entryInfoList(filters, QDir::Files);
+
+        // Only fetch songs if files are actually present
+        if (!fileList.isEmpty()) {
+            fetchSongsFromFolder(path);
+        }
+    });
 }
 
 void MainWindow::processSongMetadata(const QFileInfo &fileInfo, QMediaPlayer *tempPlayer)

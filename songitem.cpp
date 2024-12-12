@@ -32,7 +32,6 @@ void SongItem::setSongData(const QString &picturePath, const QString &name, cons
     shadowEffect->setColor(Qt::black);
     shadowEffect->setOffset(0, 0);
     ui->pictureLabel->setGraphicsEffect(shadowEffect);
-    qDebug()<< isFavorited;
     if(isFavorited){
         ui->favoriteButton->setIcon(QIcon("./icons/heartfilled.svg"));
     }else{
@@ -53,7 +52,6 @@ void SongItem::setSongData(const QString &picturePath, const QString &name, cons
     if (mainWindow && !songPath.isEmpty()) {
         PlaylistData favPlaylist = mainWindow->getPlaylistManager()->getPlaylist("Favorites");
         isFavorited = favPlaylist.songPaths.contains(songPath);
-        qDebug() << "Is Favorited : " << isFavorited;
         updateFavoriteIcon(isFavorited);
     }
 
@@ -68,7 +66,6 @@ void SongItem::setSongData(const QString &picturePath, const QString &name, cons
         // Update UI
         updateFavoriteIcon(isFavorited);
 
-        qDebug() << "Is Favorited : " << isFavorited;
         // Update playlist
         mainWindow->updateFavoriteSongs(songPath, isFavorited);
 
