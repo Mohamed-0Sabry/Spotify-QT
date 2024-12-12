@@ -38,20 +38,15 @@ public:
     ~MainWindow();
     PlaylistManager* getPlaylistManager() { return playlistManager; }
 
-
-
 signals:
     void songsLoaded();
     void playlistsLoaded();
-
 
 public slots:
     void onPlaylistSaved();
     void updateFavoriteSongs(const QString& songPath, bool isFavorited);
     void onSongStartedPlaying(const QString& songPath);
     void updateMostPlayedList();
-
-
 
 private slots:
     void on_Shrink_ResizeButton_clicked();
@@ -76,11 +71,8 @@ private:
     void createAllSongsPlaylist();
     void loadFavoriteSongsStatus();
 
-
     // Method to refresh song list with filtered results
     void refreshSongList(const QList<SongData>& songsToDisplay);
-
-
 
     // UI components
     Ui::MainWindow *ui;
@@ -94,7 +86,6 @@ private:
     SongItem *songItem;
     SearchManager *searchManager;
     PlayCountManager* playcountmanager;
-
 
     // State variables
     int originalWidth;

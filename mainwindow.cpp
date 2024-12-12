@@ -124,12 +124,13 @@ void MainWindow::setupListWidgets()
     ui->SongsListWidget->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
     ui->SongsListWidget->verticalScrollBar()->setSingleStep(7);
 
-    // Configure next songs queue widget
-    ui->NextSongsInQueueListWidget->setFlow(QListView::LeftToRight);
-    ui->NextSongsInQueueListWidget->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    ui->NextSongsInQueueListWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-    ui->NextSongsInQueueListWidget->setWrapping(false);
-    ui->NextSongsInQueueListWidget->setHorizontalScrollMode(QAbstractItemView::ScrollPerPixel);
+    // Confiugre PlayList Widget
+    ui->PlaylistsListWidget->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
+    ui->PlaylistsListWidget->verticalScrollBar()->setSingleStep(7);
+
+    // Configure MostPlayed Songs Widget
+    ui->MostPlayedSongsListWidget->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
+    ui->MostPlayedSongsListWidget->verticalScrollBar()->setSingleStep(7);
 }
 
 void MainWindow::setupMediaPlayer()
@@ -369,6 +370,14 @@ void MainWindow::processSongMetadata(const QFileInfo &fileInfo, QMediaPlayer *te
 
 void MainWindow::on_Shrink_ResizeButton_clicked()
 {
+
+    if(isShrunk){
+        ui->Shrink_ResizeButton->setIcon((QIcon("")));
+    }else{
+        ui->Shrink_ResizeButton->setIcon((QIcon("")));
+    }
+
+
     animation = new QPropertyAnimation(ui->CurrentPlayingWidgetSongs, "maximumWidth");
     animation->setDuration(800);
     animation->setEasingCurve(QEasingCurve::OutCubic);
@@ -430,8 +439,11 @@ void MainWindow::onSearchBarTextChanged(const QString &searchText)
     populateSongs(ui->SongsListWidget, filteredSongs);
 }
 
+// wanting to connect this RefreshSongList function with Signal from search Bar
 void MainWindow::refreshSongList(const QList<SongData>& songsToDisplay)
 {
+
+    qDebug() << "Refresh song list is called ";
     // Clear existing items in the song list widget
     ui->SongsListWidget->clear();
 
@@ -441,7 +453,8 @@ void MainWindow::refreshSongList(const QList<SongData>& songsToDisplay)
         SongItem* songItem = new SongItem();
 
         // Set the song data
-        bool isFavorited = false; // You might want to check actual favorited status
+        bool isFavorited = false;
+
         songItem->setSongData(
             song.picture,
             song.name,

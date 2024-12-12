@@ -158,6 +158,7 @@ compiler_rcc_clean:
 	-$(DEL_FILE) debug\qrc_allSources.cpp
 debug/qrc_allSources.cpp: ../../allSources.qrc \
 		C:/Qt/6.8.1/mingw_64/bin/rcc.exe \
+		../../covers/DefultImage.png \
 		../../icons/CreatePlaylist.svg \
 		../../icons/PlaySong.svg \
 		../../icons/PlayPreviousSong.svg \

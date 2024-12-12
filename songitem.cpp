@@ -33,9 +33,9 @@ void SongItem::setSongData(const QString &picturePath, const QString &name, cons
     shadowEffect->setOffset(0, 0);
     ui->pictureLabel->setGraphicsEffect(shadowEffect);
     if(isFavorited){
-        ui->favoriteButton->setIcon(QIcon("./icons/heartfilled.svg"));
+        ui->favorite->setIcon(QIcon("./icons/heartfilled.svg"));
     }else{
-        ui->favoriteButton->setIcon(QIcon("./icons/heartunfilled.svg"));
+        ui->favorite->setIcon(QIcon("./icons/heartunfilled.svg"));
     }
     // Get the song path
     QString songPath;
@@ -47,6 +47,8 @@ void SongItem::setSongData(const QString &picturePath, const QString &name, cons
     }
 
     // ui->favoriteButton->setIcon(QIcon("./icons/AddFavSong.svg"));
+
+
     // Check if song is in Favorites playlist
     MainWindow* mainWindow = qobject_cast<MainWindow*>(window());
     if (mainWindow && !songPath.isEmpty()) {
@@ -56,7 +58,7 @@ void SongItem::setSongData(const QString &picturePath, const QString &name, cons
     }
 
     // Connect button click handler
-    connect(ui->favoriteButton, &QPushButton::clicked, this, [this, songPath, name, &isFavorited]() {
+    connect(ui->favorite, &QPushButton::clicked, this, [this, songPath, name, &isFavorited]() {
         MainWindow* mainWindow = qobject_cast<MainWindow*>(window());
         if (!mainWindow) return;
 
@@ -74,12 +76,12 @@ void SongItem::setSongData(const QString &picturePath, const QString &name, cons
 }
 
 void SongItem::updateFavoriteIcon(bool isFavorited) {
-    ui->favoriteButton->setChecked(isFavorited);
+    ui->favorite->setChecked(isFavorited);
 
-    // if(isFavorited){
-    //     ui->favoriteButton->setIcon(QIcon("./icons/heartfilled.svg"));
-    // }else{
-    //     ui->favoriteButton->setIcon(QIcon("./icons/heartunfilled.svg"));
-    // }
+    if(isFavorited){
+        ui->favorite->setIcon(QIcon("./icons/heartfilled.svg"));
+    }else{
+        ui->favorite->setIcon(QIcon("./icons/heartunfilled.svg"));
+    }
 }
 

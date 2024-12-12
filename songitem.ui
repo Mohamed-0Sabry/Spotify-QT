@@ -91,7 +91,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QPushButton" name="favoriteButton">
+    <widget class="QPushButton" name="favorite">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
        <horstretch>0</horstretch>
@@ -109,9 +109,9 @@
      </property>
      <property name="styleSheet">
       <string notr="true">QPushButton {
-        qproperty-icon: url(./icons/AddFavSong.svg);
-    }
-</string>
+    background-color: transparent;
+    border: none;
+}</string>
      </property>
      <property name="text">
       <string/>

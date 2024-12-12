@@ -121,6 +121,8 @@ void AudioControls::updateUIForSong(const SongData& song)
             m_albumArt->setPixmap(songImage);
             m_albumArt->setScaledContents(true);
         } else {
+            m_albumArt->setPixmap(QPixmap("./covers/DefultImage.png"));
+            m_albumArt->setScaledContents(true);
             qDebug() << "Image not found for" << song.name;
         }
     }

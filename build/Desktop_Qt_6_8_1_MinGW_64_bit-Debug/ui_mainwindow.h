@@ -58,8 +58,6 @@ public:
     QHBoxLayout *horizontalLayout;
     QLabel *CurrentPlayingPlaylistName;
     QPushButton *Shrink_ResizeButton;
-    QListWidget *NextSongsInQueueListWidget;
-    QSpacerItem *verticalSpacer;
     QWidget *CurrentPlayingSongImageWidget;
     QHBoxLayout *horizontalLayout_5;
     QLabel *CurrentPlayingSongImage;
@@ -404,6 +402,7 @@ public:
         verticalLayout = new QVBoxLayout(CurrentPlayingWidgetSongs);
         verticalLayout->setSpacing(0);
         verticalLayout->setObjectName("verticalLayout");
+        verticalLayout->setContentsMargins(-1, 20, -1, 20);
         widget_6 = new QWidget(CurrentPlayingWidgetSongs);
         widget_6->setObjectName("widget_6");
         horizontalLayout = new QHBoxLayout(widget_6);
@@ -412,8 +411,12 @@ public:
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
         CurrentPlayingPlaylistName = new QLabel(widget_6);
         CurrentPlayingPlaylistName->setObjectName("CurrentPlayingPlaylistName");
-        CurrentPlayingPlaylistName->setStyleSheet(QString::fromUtf8("Font: bold;\n"
-"font-size: 20px;"));
+        QFont font;
+        font.setPointSize(26);
+        font.setBold(true);
+        font.setItalic(false);
+        CurrentPlayingPlaylistName->setFont(font);
+        CurrentPlayingPlaylistName->setStyleSheet(QString::fromUtf8("Font: bold;"));
 
         horizontalLayout->addWidget(CurrentPlayingPlaylistName);
 
@@ -425,26 +428,6 @@ public:
 
         verticalLayout->addWidget(widget_6);
 
-        NextSongsInQueueListWidget = new QListWidget(CurrentPlayingWidgetSongs);
-        new QListWidgetItem(NextSongsInQueueListWidget);
-        new QListWidgetItem(NextSongsInQueueListWidget);
-        new QListWidgetItem(NextSongsInQueueListWidget);
-        new QListWidgetItem(NextSongsInQueueListWidget);
-        new QListWidgetItem(NextSongsInQueueListWidget);
-        NextSongsInQueueListWidget->setObjectName("NextSongsInQueueListWidget");
-        QSizePolicy sizePolicy3(QSizePolicy::Policy::Expanding, QSizePolicy::Policy::Preferred);
-        sizePolicy3.setHorizontalStretch(0);
-        sizePolicy3.setVerticalStretch(0);
-        sizePolicy3.setHeightForWidth(NextSongsInQueueListWidget->sizePolicy().hasHeightForWidth());
-        NextSongsInQueueListWidget->setSizePolicy(sizePolicy3);
-        NextSongsInQueueListWidget->setMaximumSize(QSize(16777215, 100));
-
-        verticalLayout->addWidget(NextSongsInQueueListWidget);
-
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Expanding);
-
-        verticalLayout->addItem(verticalSpacer);
-
         CurrentPlayingSongImageWidget = new QWidget(CurrentPlayingWidgetSongs);
         CurrentPlayingSongImageWidget->setObjectName("CurrentPlayingSongImageWidget");
         sizePolicy2.setHeightForWidth(CurrentPlayingSongImageWidget->sizePolicy().hasHeightForWidth());
@@ -455,12 +438,14 @@ public:
         horizontalLayout_5->setContentsMargins(0, 0, 0, 0);
         CurrentPlayingSongImage = new QLabel(CurrentPlayingSongImageWidget);
         CurrentPlayingSongImage->setObjectName("CurrentPlayingSongImage");
-        QSizePolicy sizePolicy4(QSizePolicy::Policy::Maximum, QSizePolicy::Policy::Maximum);
-        sizePolicy4.setHorizontalStretch(0);
-        sizePolicy4.setVerticalStretch(0);
-        sizePolicy4.setHeightForWidth(CurrentPlayingSongImage->sizePolicy().hasHeightForWidth());
-        CurrentPlayingSongImage->setSizePolicy(sizePolicy4);
+        QSizePolicy sizePolicy3(QSizePolicy::Policy::Maximum, QSizePolicy::Policy::Maximum);
+        sizePolicy3.setHorizontalStretch(0);
+        sizePolicy3.setVerticalStretch(0);
+        sizePolicy3.setHeightForWidth(CurrentPlayingSongImage->sizePolicy().hasHeightForWidth());
+        CurrentPlayingSongImage->setSizePolicy(sizePolicy3);
         CurrentPlayingSongImage->setMaximumSize(QSize(290, 290));
+        CurrentPlayingSongImage->setPixmap(QPixmap(QString::fromUtf8(":/covers/DefultImage.png")));
+        CurrentPlayingSongImage->setScaledContents(true);
         CurrentPlayingSongImage->setAlignment(Qt::AlignmentFlag::AlignCenter);
 
         horizontalLayout_5->addWidget(CurrentPlayingSongImage);
@@ -476,11 +461,11 @@ public:
         verticalLayout_5->setContentsMargins(0, 0, 0, 0);
         SongNameInfo = new QLabel(SongInfoWidget);
         SongNameInfo->setObjectName("SongNameInfo");
-        QFont font;
-        font.setBold(true);
-        font.setItalic(false);
-        font.setKerning(true);
-        SongNameInfo->setFont(font);
+        QFont font1;
+        font1.setBold(true);
+        font1.setItalic(false);
+        font1.setKerning(true);
+        SongNameInfo->setFont(font1);
         SongNameInfo->setStyleSheet(QString::fromUtf8("font:26px;\n"
 "font-weight:bold;"));
         SongNameInfo->setAlignment(Qt::AlignmentFlag::AlignCenter);
@@ -526,11 +511,11 @@ public:
 
         Play_PauseButton = new QPushButton(SongControlsWidget);
         Play_PauseButton->setObjectName("Play_PauseButton");
-        QSizePolicy sizePolicy5(QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Preferred);
-        sizePolicy5.setHorizontalStretch(0);
-        sizePolicy5.setVerticalStretch(0);
-        sizePolicy5.setHeightForWidth(Play_PauseButton->sizePolicy().hasHeightForWidth());
-        Play_PauseButton->setSizePolicy(sizePolicy5);
+        QSizePolicy sizePolicy4(QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Preferred);
+        sizePolicy4.setHorizontalStretch(0);
+        sizePolicy4.setVerticalStretch(0);
+        sizePolicy4.setHeightForWidth(Play_PauseButton->sizePolicy().hasHeightForWidth());
+        Play_PauseButton->setSizePolicy(sizePolicy4);
         Play_PauseButton->setCursor(QCursor(Qt::CursorShape::PointingHandCursor));
         Play_PauseButton->setMouseTracking(false);
         Play_PauseButton->setStyleSheet(QString::fromUtf8(""));
@@ -540,11 +525,11 @@ public:
 
         PlayNextButton = new QPushButton(SongControlsWidget);
         PlayNextButton->setObjectName("PlayNextButton");
-        QSizePolicy sizePolicy6(QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Minimum);
-        sizePolicy6.setHorizontalStretch(0);
-        sizePolicy6.setVerticalStretch(0);
-        sizePolicy6.setHeightForWidth(PlayNextButton->sizePolicy().hasHeightForWidth());
-        PlayNextButton->setSizePolicy(sizePolicy6);
+        QSizePolicy sizePolicy5(QSizePolicy::Policy::Minimum, QSizePolicy::Policy::Minimum);
+        sizePolicy5.setHorizontalStretch(0);
+        sizePolicy5.setVerticalStretch(0);
+        sizePolicy5.setHeightForWidth(PlayNextButton->sizePolicy().hasHeightForWidth());
+        PlayNextButton->setSizePolicy(sizePolicy5);
         PlayNextButton->setCursor(QCursor(Qt::CursorShape::PointingHandCursor));
         PlayNextButton->setStyleSheet(QString::fromUtf8(""));
         PlayNextButton->setCheckable(true);
@@ -705,30 +690,15 @@ public:
         MostPlayedSongsListWidget->setSortingEnabled(__sortingEnabled1);
 
         CurrentPlayingPlaylistName->setText(QCoreApplication::translate("MainWindow", "All Songs", nullptr));
-        Shrink_ResizeButton->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
-
-        const bool __sortingEnabled2 = NextSongsInQueueListWidget->isSortingEnabled();
-        NextSongsInQueueListWidget->setSortingEnabled(false);
-        QListWidgetItem *___qlistwidgetitem6 = NextSongsInQueueListWidget->item(0);
-        ___qlistwidgetitem6->setText(QCoreApplication::translate("MainWindow", "New Item", nullptr));
-        QListWidgetItem *___qlistwidgetitem7 = NextSongsInQueueListWidget->item(1);
-        ___qlistwidgetitem7->setText(QCoreApplication::translate("MainWindow", "New Item", nullptr));
-        QListWidgetItem *___qlistwidgetitem8 = NextSongsInQueueListWidget->item(2);
-        ___qlistwidgetitem8->setText(QCoreApplication::translate("MainWindow", "New Item", nullptr));
-        QListWidgetItem *___qlistwidgetitem9 = NextSongsInQueueListWidget->item(3);
-        ___qlistwidgetitem9->setText(QCoreApplication::translate("MainWindow", "New Item", nullptr));
-        QListWidgetItem *___qlistwidgetitem10 = NextSongsInQueueListWidget->item(4);
-        ___qlistwidgetitem10->setText(QCoreApplication::translate("MainWindow", "New Item", nullptr));
-        NextSongsInQueueListWidget->setSortingEnabled(__sortingEnabled2);
-
-        CurrentPlayingSongImage->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
-        SongNameInfo->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
-        SongAuthorInfo->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
+        Shrink_ResizeButton->setText(QString());
+        CurrentPlayingSongImage->setText(QString());
+        SongNameInfo->setText(QCoreApplication::translate("MainWindow", "Awtar Music", nullptr));
+        SongAuthorInfo->setText(QCoreApplication::translate("MainWindow", "Created with \342\235\244\357\270\217", nullptr));
         PlayPreviousButton->setText(QString());
         Play_PauseButton->setText(QString());
         PlayNextButton->setText(QString());
-        CurrentSongTime->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
-        FullSongTime->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
+        CurrentSongTime->setText(QCoreApplication::translate("MainWindow", "00:00", nullptr));
+        FullSongTime->setText(QCoreApplication::translate("MainWindow", "00:00", nullptr));
     } // retranslateUi
 
 };

@@ -9,4 +9,7 @@
         <file>icons/PlayPreviousSong.svg</file>
         <file>icons/PlaySong.svg</file>
     </qresource>
+    <qresource prefix="/">
+        <file>covers/DefultImage.png</file>
+    </qresource>
 </RCC>
