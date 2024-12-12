@@ -52,3 +52,6 @@ DISTFILES += \
     icons/heartunfilled.svg \
     images/therealslimshade.png \
     images/withoutme.png \
+
+RESOURCES += \
+    allSources.qrc

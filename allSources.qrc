@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>icons/AddFavSong.svg</file>
+        <file>icons/CreatePlaylist.svg</file>
+        <file>icons/heartfilled.svg</file>
+        <file>icons/heartunfilled.svg</file>
+        <file>icons/PauseSong.svg</file>
+        <file>icons/PlayNextSong.svg</file>
+        <file>icons/PlayPreviousSong.svg</file>
+        <file>icons/PlaySong.svg</file>
+    </qresource>
+</RCC>

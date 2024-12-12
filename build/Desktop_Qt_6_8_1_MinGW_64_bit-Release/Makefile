@@ -277,6 +277,7 @@ Makefile: ../../spoti.pro C:/Qt/6.8.1/mingw_64/mkspecs/win32-g++/qmake.conf C:/Q
 		C:/Qt/6.8.1/mingw_64/mkspecs/features/qt_config.prf \
 		C:/Qt/6.8.1/mingw_64/mkspecs/win32-g++/qmake.conf \
 		C:/Qt/6.8.1/mingw_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		C:/Qt/6.8.1/mingw_64/mkspecs/features/exclusive_builds.prf \
 		C:/Qt/6.8.1/mingw_64/mkspecs/features/toolchain.prf \
 		C:/Qt/6.8.1/mingw_64/mkspecs/features/default_pre.prf \
@@ -308,8 +309,8 @@ Makefile: ../../spoti.pro C:/Qt/6.8.1/mingw_64/mkspecs/win32-g++/qmake.conf C:/Q
 		C:/Qt/6.8.1/mingw_64/lib/Qt6Network.prl \
 		C:/Qt/6.8.1/mingw_64/lib/Qt6Core.prl \
 		C:/Qt/6.8.1/mingw_64/lib/Qt6EntryPoint.prl \
-		.qmake.stash \
-		C:/Qt/6.8.1/mingw_64/mkspecs/features/build_pass.prf
+		C:/Qt/6.8.1/mingw_64/mkspecs/features/build_pass.prf \
+		../../allSources.qrc
 	$(QMAKE) -o Makefile ..\..\spoti.pro -spec win32-g++ "CONFIG+=qtquickcompiler"
 C:/Qt/6.8.1/mingw_64/mkspecs/features/spec_pre.prf:
 C:/Qt/6.8.1/mingw_64/mkspecs/features/device_config.prf:
@@ -518,6 +519,7 @@ C:/Qt/6.8.1/mingw_64/mkspecs/features/qt_functions.prf:
 C:/Qt/6.8.1/mingw_64/mkspecs/features/qt_config.prf:
 C:/Qt/6.8.1/mingw_64/mkspecs/win32-g++/qmake.conf:
 C:/Qt/6.8.1/mingw_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 C:/Qt/6.8.1/mingw_64/mkspecs/features/exclusive_builds.prf:
 C:/Qt/6.8.1/mingw_64/mkspecs/features/toolchain.prf:
 C:/Qt/6.8.1/mingw_64/mkspecs/features/default_pre.prf:
@@ -549,8 +551,8 @@ C:/Qt/6.8.1/mingw_64/lib/Qt6Gui.prl:
 C:/Qt/6.8.1/mingw_64/lib/Qt6Network.prl:
 C:/Qt/6.8.1/mingw_64/lib/Qt6Core.prl:
 C:/Qt/6.8.1/mingw_64/lib/Qt6EntryPoint.prl:
-.qmake.stash:
 C:/Qt/6.8.1/mingw_64/mkspecs/features/build_pass.prf:
+../../allSources.qrc:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ..\..\spoti.pro -spec win32-g++ "CONFIG+=qtquickcompiler"
 
