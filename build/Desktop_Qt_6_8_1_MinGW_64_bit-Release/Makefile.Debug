@@ -88,7 +88,8 @@ OBJECTS       = debug/audiocontrols.o \
 		debug/moc_searchmanager.o \
 		debug/moc_songitem.o
 
-DIST          = icons/CreatePlaylist.svg \
+DIST          = icons/CloseWidget.svg \
+		icons/CreatePlaylist.svg \
 		icons/PauseSong.svg \
 		icons/PlayNextSong.svg \
 		icons/PlayPreviousSong.svg \
@@ -158,6 +159,7 @@ compiler_rcc_clean:
 	-$(DEL_FILE) debug\qrc_allSources.cpp
 debug/qrc_allSources.cpp: ../../allSources.qrc \
 		C:/Qt/6.8.1/mingw_64/bin/rcc.exe \
+		../../covers/DefultImage.png \
 		../../icons/CreatePlaylist.svg \
 		../../icons/PlaySong.svg \
 		../../icons/PlayPreviousSong.svg \
@@ -810,9 +812,12 @@ debug/moc_mainwindow.cpp: ../../mainwindow.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qinputmethod.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qguiapplication_platform.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QLabel \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlabel.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qframe.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QGridLayout \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qgridlayout.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlayout.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlayoutitem.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qsizepolicy.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qboxlayout.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qwidget.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qpalette.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qbrush.h \
@@ -820,7 +825,6 @@ debug/moc_mainwindow.cpp: ../../mainwindow.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/qendian.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qfontmetrics.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qfontinfo.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qsizepolicy.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qevent.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/qiodevice.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/qurl.h \
@@ -837,23 +841,47 @@ debug/moc_mainwindow.cpp: ../../mainwindow.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/QSizeF \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/QTransform \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qscreen_platform.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QHBoxLayout \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QLabel \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlabel.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qframe.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qpicture.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QLineEdit \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlineedit.h \
+		C:/Qt/6.8.1/mingw_64/include/QtGui/qtextcursor.h \
+		C:/Qt/6.8.1/mingw_64/include/QtGui/qtextformat.h \
+		C:/Qt/6.8.1/mingw_64/include/QtGui/qpen.h \
+		C:/Qt/6.8.1/mingw_64/include/QtGui/qtextoption.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QListWidget \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlistwidget.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlistview.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/6.8.1/mingw_64/include/QtCore/qabstractitemmodel.h \
+		C:/Qt/6.8.1/mingw_64/include/QtCore/qitemselectionmodel.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qstyleoption.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
+		C:/Qt/6.8.1/mingw_64/include/QtGui/qvalidator.h \
+		C:/Qt/6.8.1/mingw_64/include/QtCore/qregularexpression.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qslider.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractslider.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qstyle.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qtabbar.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qtabwidget.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qrubberband.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QMainWindow \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qmainwindow.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qtabwidget.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QMenu \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qmenu.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QMenuBar \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qmenubar.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qmenu.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QPushButton \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qpushbutton.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractbutton.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QSlider \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qslider.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractslider.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QStatusBar \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qstatusbar.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QSpacerItem \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QVBoxLayout \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QWidget \
 		../../audiocontrols.h \
 		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/QMediaPlayer \
@@ -866,22 +894,7 @@ debug/moc_mainwindow.cpp: ../../mainwindow.h \
 		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/QAudioOutput \
 		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qaudiooutput.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QListWidgetItem \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlistwidget.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlistview.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractitemview.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
-		C:/Qt/6.8.1/mingw_64/include/QtCore/qabstractitemmodel.h \
-		C:/Qt/6.8.1/mingw_64/include/QtCore/qitemselectionmodel.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qstyleoption.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
-		C:/Qt/6.8.1/mingw_64/include/QtGui/qvalidator.h \
-		C:/Qt/6.8.1/mingw_64/include/QtCore/qregularexpression.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qstyle.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qtabbar.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qrubberband.h \
 		../../uiutils.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QListWidget \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/QStringList \
 		../../songitem.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/QString \
@@ -1034,10 +1047,6 @@ debug/moc_mainwindow.cpp: ../../mainwindow.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qglyphrun.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qrawfont.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qfontdatabase.h \
-		C:/Qt/6.8.1/mingw_64/include/QtGui/qtextcursor.h \
-		C:/Qt/6.8.1/mingw_64/include/QtGui/qtextformat.h \
-		C:/Qt/6.8.1/mingw_64/include/QtGui/qpen.h \
-		C:/Qt/6.8.1/mingw_64/include/QtGui/qtextoption.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qaccessible.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qaccessible_base.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qaccessiblebridge.h \
@@ -1207,16 +1216,14 @@ debug/moc_mainwindow.cpp: ../../mainwindow.h \
 		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qwindowcapture.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QFileDialog \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qfiledialog.h \
+		C:/Qt/6.8.1/mingw_64/include/QtCore/QPropertyAnimation \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QGraphicsOpacityEffect \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qgraphicseffect.h \
+		C:/Qt/6.8.1/mingw_64/include/QtCore/QParallelAnimationGroup \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QScrollBar \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qscrollbar.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QHBoxLayout \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qboxlayout.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlayout.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlayoutitem.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qgridlayout.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QStyle \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/QIcon \
-		C:/Qt/6.8.1/mingw_64/include/QtCore/QPropertyAnimation \
 		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/QMediaMetaData \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/QFileInfo \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/QTime \
@@ -2724,13 +2731,30 @@ debug/createplaylistdialog.o: ../../createplaylistdialog.cpp ../../createplaylis
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QWidget \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/QPixmap \
 		ui_createplaylistdialog.h \
-		../../uiutils.h \
+		C:/Qt/6.8.1/mingw_64/include/QtCore/QVariant \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QApplication \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qapplication.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QHBoxLayout \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qboxlayout.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlayout.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlayoutitem.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qgridlayout.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QLabel \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlabel.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qframe.h \
+		C:/Qt/6.8.1/mingw_64/include/QtGui/qpicture.h \
+		C:/Qt/6.8.1/mingw_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QLineEdit \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlineedit.h \
+		C:/Qt/6.8.1/mingw_64/include/QtGui/qtextcursor.h \
+		C:/Qt/6.8.1/mingw_64/include/QtGui/qtextformat.h \
+		C:/Qt/6.8.1/mingw_64/include/QtGui/qpen.h \
+		C:/Qt/6.8.1/mingw_64/include/QtGui/qtextoption.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QListWidget \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlistwidget.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlistview.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractitemview.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qframe.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/qabstractitemmodel.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/qitemselectionmodel.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
@@ -2743,6 +2767,12 @@ debug/createplaylistdialog.o: ../../createplaylistdialog.cpp ../../createplaylis
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qtabbar.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qtabwidget.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qrubberband.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QPushButton \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qpushbutton.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QSpacerItem \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QVBoxLayout \
+		../../uiutils.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/QStringList \
 		../../songitem.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/QString \
@@ -2922,9 +2952,12 @@ debug/main.o: ../../main.cpp ../../mainwindow.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qinputmethod.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qguiapplication_platform.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QLabel \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlabel.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qframe.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QGridLayout \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qgridlayout.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlayout.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlayoutitem.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qsizepolicy.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qboxlayout.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qwidget.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qpalette.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qbrush.h \
@@ -2932,7 +2965,6 @@ debug/main.o: ../../main.cpp ../../mainwindow.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/qendian.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qfontmetrics.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qfontinfo.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qsizepolicy.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qevent.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/qiodevice.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/qurl.h \
@@ -2949,23 +2981,47 @@ debug/main.o: ../../main.cpp ../../mainwindow.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/QSizeF \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/QTransform \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qscreen_platform.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QHBoxLayout \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QLabel \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlabel.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qframe.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qpicture.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QLineEdit \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlineedit.h \
+		C:/Qt/6.8.1/mingw_64/include/QtGui/qtextcursor.h \
+		C:/Qt/6.8.1/mingw_64/include/QtGui/qtextformat.h \
+		C:/Qt/6.8.1/mingw_64/include/QtGui/qpen.h \
+		C:/Qt/6.8.1/mingw_64/include/QtGui/qtextoption.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QListWidget \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlistwidget.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlistview.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/6.8.1/mingw_64/include/QtCore/qabstractitemmodel.h \
+		C:/Qt/6.8.1/mingw_64/include/QtCore/qitemselectionmodel.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qstyleoption.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
+		C:/Qt/6.8.1/mingw_64/include/QtGui/qvalidator.h \
+		C:/Qt/6.8.1/mingw_64/include/QtCore/qregularexpression.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qslider.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractslider.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qstyle.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qtabbar.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qtabwidget.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qrubberband.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QMainWindow \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qmainwindow.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qtabwidget.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QMenu \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qmenu.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QMenuBar \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qmenubar.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qmenu.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QPushButton \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qpushbutton.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractbutton.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QSlider \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qslider.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractslider.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QStatusBar \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qstatusbar.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QSpacerItem \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QVBoxLayout \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QWidget \
 		../../audiocontrols.h \
 		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/QMediaPlayer \
@@ -2978,22 +3034,7 @@ debug/main.o: ../../main.cpp ../../mainwindow.h \
 		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/QAudioOutput \
 		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qaudiooutput.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QListWidgetItem \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlistwidget.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlistview.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractitemview.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
-		C:/Qt/6.8.1/mingw_64/include/QtCore/qabstractitemmodel.h \
-		C:/Qt/6.8.1/mingw_64/include/QtCore/qitemselectionmodel.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qstyleoption.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
-		C:/Qt/6.8.1/mingw_64/include/QtGui/qvalidator.h \
-		C:/Qt/6.8.1/mingw_64/include/QtCore/qregularexpression.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qstyle.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qtabbar.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qrubberband.h \
 		../../uiutils.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QListWidget \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/QStringList \
 		../../songitem.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/QString \
@@ -3146,10 +3187,6 @@ debug/main.o: ../../main.cpp ../../mainwindow.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qglyphrun.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qrawfont.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qfontdatabase.h \
-		C:/Qt/6.8.1/mingw_64/include/QtGui/qtextcursor.h \
-		C:/Qt/6.8.1/mingw_64/include/QtGui/qtextformat.h \
-		C:/Qt/6.8.1/mingw_64/include/QtGui/qpen.h \
-		C:/Qt/6.8.1/mingw_64/include/QtGui/qtextoption.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qaccessible.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qaccessible_base.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qaccessiblebridge.h \
@@ -3319,16 +3356,14 @@ debug/main.o: ../../main.cpp ../../mainwindow.h \
 		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qwindowcapture.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QFileDialog \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qfiledialog.h \
+		C:/Qt/6.8.1/mingw_64/include/QtCore/QPropertyAnimation \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QGraphicsOpacityEffect \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qgraphicseffect.h \
+		C:/Qt/6.8.1/mingw_64/include/QtCore/QParallelAnimationGroup \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QScrollBar \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qscrollbar.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QHBoxLayout \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qboxlayout.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlayout.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlayoutitem.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qgridlayout.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QStyle \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/QIcon \
-		C:/Qt/6.8.1/mingw_64/include/QtCore/QPropertyAnimation \
 		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/QMediaMetaData \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/QFileInfo \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/QTime \
@@ -3506,9 +3541,12 @@ debug/mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qinputmethod.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qguiapplication_platform.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QLabel \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlabel.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qframe.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QGridLayout \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qgridlayout.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlayout.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlayoutitem.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qsizepolicy.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qboxlayout.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qwidget.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qpalette.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qbrush.h \
@@ -3516,7 +3554,6 @@ debug/mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/qendian.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qfontmetrics.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qfontinfo.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qsizepolicy.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qevent.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/qiodevice.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/qurl.h \
@@ -3533,23 +3570,47 @@ debug/mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/QSizeF \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/QTransform \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qscreen_platform.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QHBoxLayout \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QLabel \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlabel.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qframe.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qpicture.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QLineEdit \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlineedit.h \
+		C:/Qt/6.8.1/mingw_64/include/QtGui/qtextcursor.h \
+		C:/Qt/6.8.1/mingw_64/include/QtGui/qtextformat.h \
+		C:/Qt/6.8.1/mingw_64/include/QtGui/qpen.h \
+		C:/Qt/6.8.1/mingw_64/include/QtGui/qtextoption.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QListWidget \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlistwidget.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlistview.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/6.8.1/mingw_64/include/QtCore/qabstractitemmodel.h \
+		C:/Qt/6.8.1/mingw_64/include/QtCore/qitemselectionmodel.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qstyleoption.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
+		C:/Qt/6.8.1/mingw_64/include/QtGui/qvalidator.h \
+		C:/Qt/6.8.1/mingw_64/include/QtCore/qregularexpression.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qslider.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractslider.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qstyle.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qtabbar.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qtabwidget.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qrubberband.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QMainWindow \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qmainwindow.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qtabwidget.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QMenu \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qmenu.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QMenuBar \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qmenubar.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qmenu.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QPushButton \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qpushbutton.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractbutton.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QSlider \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qslider.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractslider.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QStatusBar \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qstatusbar.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QSpacerItem \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QVBoxLayout \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QWidget \
 		../../audiocontrols.h \
 		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/QMediaPlayer \
@@ -3562,22 +3623,7 @@ debug/mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/QAudioOutput \
 		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qaudiooutput.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QListWidgetItem \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlistwidget.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlistview.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractitemview.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractscrollarea.h \
-		C:/Qt/6.8.1/mingw_64/include/QtCore/qabstractitemmodel.h \
-		C:/Qt/6.8.1/mingw_64/include/QtCore/qitemselectionmodel.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qstyleoption.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
-		C:/Qt/6.8.1/mingw_64/include/QtGui/qvalidator.h \
-		C:/Qt/6.8.1/mingw_64/include/QtCore/qregularexpression.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qstyle.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qtabbar.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qrubberband.h \
 		../../uiutils.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QListWidget \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/QStringList \
 		../../songitem.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/QString \
@@ -3730,10 +3776,6 @@ debug/mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qglyphrun.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qrawfont.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qfontdatabase.h \
-		C:/Qt/6.8.1/mingw_64/include/QtGui/qtextcursor.h \
-		C:/Qt/6.8.1/mingw_64/include/QtGui/qtextformat.h \
-		C:/Qt/6.8.1/mingw_64/include/QtGui/qpen.h \
-		C:/Qt/6.8.1/mingw_64/include/QtGui/qtextoption.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qaccessible.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qaccessible_base.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qaccessiblebridge.h \
@@ -3903,16 +3945,14 @@ debug/mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qwindowcapture.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QFileDialog \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qfiledialog.h \
+		C:/Qt/6.8.1/mingw_64/include/QtCore/QPropertyAnimation \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QGraphicsOpacityEffect \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qgraphicseffect.h \
+		C:/Qt/6.8.1/mingw_64/include/QtCore/QParallelAnimationGroup \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QScrollBar \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qscrollbar.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QHBoxLayout \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qboxlayout.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlayout.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlayoutitem.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qgridlayout.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QStyle \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/QIcon \
-		C:/Qt/6.8.1/mingw_64/include/QtCore/QPropertyAnimation \
 		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/QMediaMetaData \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/QFileInfo \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/QTime \
@@ -4345,7 +4385,24 @@ debug/playlistitem.o: ../../playlistitem.cpp ../../playlistitem.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qinputmethod.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/qlocale.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qguiapplication_platform.h \
-		C:/Qt/6.8.1/mingw_64/include/QtGui/QPixmap
+		C:/Qt/6.8.1/mingw_64/include/QtGui/QPixmap \
+		ui_PlaylistItem.h \
+		C:/Qt/6.8.1/mingw_64/include/QtCore/QVariant \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QApplication \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qapplication.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QCheckBox \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qcheckbox.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QHBoxLayout \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qboxlayout.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlayout.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlayoutitem.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qgridlayout.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QLabel \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlabel.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qframe.h \
+		C:/Qt/6.8.1/mingw_64/include/QtGui/qpicture.h \
+		C:/Qt/6.8.1/mingw_64/include/QtGui/qtextdocument.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\playlistitem.o ..\..\playlistitem.cpp
 
 debug/playlistmanager.o: ../../playlistmanager.cpp ../../playlistmanager.h \
@@ -4919,6 +4976,21 @@ debug/songitem.o: ../../songitem.cpp ../../songitem.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qtabwidget.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qrubberband.h \
 		ui_songitem.h \
+		C:/Qt/6.8.1/mingw_64/include/QtCore/QVariant \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QApplication \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qapplication.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QHBoxLayout \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qboxlayout.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlayout.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlayoutitem.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qgridlayout.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QLabel \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlabel.h \
+		C:/Qt/6.8.1/mingw_64/include/QtGui/qpicture.h \
+		C:/Qt/6.8.1/mingw_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QPushButton \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qpushbutton.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractbutton.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QGraphicsDropShadowEffect \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qgraphicseffect.h \
 		../../uiutils.h \
@@ -4926,26 +4998,22 @@ debug/songitem.o: ../../songitem.cpp ../../songitem.h \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/QString \
 		../../mainwindow.h \
 		ui_mainwindow.h \
-		C:/Qt/6.8.1/mingw_64/include/QtCore/QVariant \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/QAction \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QApplication \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qapplication.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QLabel \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlabel.h \
-		C:/Qt/6.8.1/mingw_64/include/QtGui/qpicture.h \
-		C:/Qt/6.8.1/mingw_64/include/QtGui/qtextdocument.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QGridLayout \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QLineEdit \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlineedit.h \
+		C:/Qt/6.8.1/mingw_64/include/QtGui/qtextcursor.h \
+		C:/Qt/6.8.1/mingw_64/include/QtGui/qtextformat.h \
+		C:/Qt/6.8.1/mingw_64/include/QtGui/qpen.h \
+		C:/Qt/6.8.1/mingw_64/include/QtGui/qtextoption.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QMainWindow \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qmainwindow.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QMenu \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qmenu.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QMenuBar \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qmenubar.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QPushButton \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qpushbutton.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qmenu.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QSlider \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QStatusBar \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qstatusbar.h \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QSpacerItem \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QVBoxLayout \
 		../../audiocontrols.h \
 		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/QMediaPlayer \
 		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qmediaplayer.h \
@@ -5106,10 +5174,6 @@ debug/songitem.o: ../../songitem.cpp ../../songitem.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qglyphrun.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qrawfont.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qfontdatabase.h \
-		C:/Qt/6.8.1/mingw_64/include/QtGui/qtextcursor.h \
-		C:/Qt/6.8.1/mingw_64/include/QtGui/qtextformat.h \
-		C:/Qt/6.8.1/mingw_64/include/QtGui/qpen.h \
-		C:/Qt/6.8.1/mingw_64/include/QtGui/qtextoption.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qaccessible.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qaccessible_base.h \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/qaccessiblebridge.h \
@@ -5279,16 +5343,13 @@ debug/songitem.o: ../../songitem.cpp ../../songitem.h \
 		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/qwindowcapture.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QFileDialog \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qfiledialog.h \
+		C:/Qt/6.8.1/mingw_64/include/QtCore/QPropertyAnimation \
+		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QGraphicsOpacityEffect \
+		C:/Qt/6.8.1/mingw_64/include/QtCore/QParallelAnimationGroup \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QScrollBar \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qscrollbar.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QHBoxLayout \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qboxlayout.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlayout.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qlayoutitem.h \
-		C:/Qt/6.8.1/mingw_64/include/QtWidgets/qgridlayout.h \
 		C:/Qt/6.8.1/mingw_64/include/QtWidgets/QStyle \
 		C:/Qt/6.8.1/mingw_64/include/QtGui/QIcon \
-		C:/Qt/6.8.1/mingw_64/include/QtCore/QPropertyAnimation \
 		C:/Qt/6.8.1/mingw_64/include/QtMultimedia/QMediaMetaData \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/QFileInfo \
 		C:/Qt/6.8.1/mingw_64/include/QtCore/QTime \

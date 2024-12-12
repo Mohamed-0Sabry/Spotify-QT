@@ -28,7 +28,7 @@ public:
     QLabel *nameLabel;
     QLabel *authorLabel;
     QLabel *lengthLabel;
-    QPushButton *favoriteButton;
+    QPushButton *favorite;
 
     void setupUi(QWidget *SongItem)
     {
@@ -83,23 +83,23 @@ public:
 
         horizontalLayout->addWidget(lengthLabel);
 
-        favoriteButton = new QPushButton(SongItem);
-        favoriteButton->setObjectName("favoriteButton");
+        favorite = new QPushButton(SongItem);
+        favorite->setObjectName("favorite");
         QSizePolicy sizePolicy2(QSizePolicy::Policy::Maximum, QSizePolicy::Policy::Fixed);
         sizePolicy2.setHorizontalStretch(0);
         sizePolicy2.setVerticalStretch(0);
-        sizePolicy2.setHeightForWidth(favoriteButton->sizePolicy().hasHeightForWidth());
-        favoriteButton->setSizePolicy(sizePolicy2);
-        favoriteButton->setMaximumSize(QSize(20, 20));
-        favoriteButton->setCursor(QCursor(Qt::CursorShape::PointingHandCursor));
-        favoriteButton->setStyleSheet(QString::fromUtf8("QPushButton {\n"
-"        qproperty-icon: url(./icons/AddFavSong.svg);\n"
-"    }\n"
-""));
-        favoriteButton->setCheckable(true);
-        favoriteButton->setChecked(false);
+        sizePolicy2.setHeightForWidth(favorite->sizePolicy().hasHeightForWidth());
+        favorite->setSizePolicy(sizePolicy2);
+        favorite->setMaximumSize(QSize(20, 20));
+        favorite->setCursor(QCursor(Qt::CursorShape::PointingHandCursor));
+        favorite->setStyleSheet(QString::fromUtf8("QPushButton {\n"
+"    background-color: transparent;\n"
+"    border: none;\n"
+"}"));
+        favorite->setCheckable(true);
+        favorite->setChecked(false);
 
-        horizontalLayout->addWidget(favoriteButton);
+        horizontalLayout->addWidget(favorite);
 
 
         retranslateUi(SongItem);
@@ -114,7 +114,7 @@ public:
         nameLabel->setText(QCoreApplication::translate("SongItem", "TextLabel", nullptr));
         authorLabel->setText(QCoreApplication::translate("SongItem", "TextLabel", nullptr));
         lengthLabel->setText(QCoreApplication::translate("SongItem", "TextLabel", nullptr));
-        favoriteButton->setText(QString());
+        favorite->setText(QString());
     } // retranslateUi
 
 };

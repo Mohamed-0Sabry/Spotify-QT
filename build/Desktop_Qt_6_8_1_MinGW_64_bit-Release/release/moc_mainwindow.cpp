@@ -55,6 +55,7 @@ static constexpr auto qt_meta_stringdata_ZN10MainWindowE = QtMocHelpers::stringD
     "on_CreatePlaylistButton_clicked",
     "onDirectoryChanged",
     "path",
+    "onSongsDirectoryChanged",
     "on_PlaylistsListWidget_itemClicked",
     "QListWidgetItem*",
     "item",
@@ -71,7 +72,7 @@ Q_CONSTINIT static const uint qt_meta_data_ZN10MainWindowE[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-      11,   14, // methods
+      12,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -79,19 +80,20 @@ Q_CONSTINIT static const uint qt_meta_data_ZN10MainWindowE[] = {
        2,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   80,    2, 0x06,    1 /* Public */,
-       3,    0,   81,    2, 0x06,    2 /* Public */,
+       1,    0,   86,    2, 0x06,    1 /* Public */,
+       3,    0,   87,    2, 0x06,    2 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       4,    0,   82,    2, 0x0a,    3 /* Public */,
-       5,    2,   83,    2, 0x0a,    4 /* Public */,
-       8,    1,   88,    2, 0x0a,    7 /* Public */,
-       9,    0,   91,    2, 0x0a,    9 /* Public */,
-      10,    0,   92,    2, 0x08,   10 /* Private */,
-      11,    0,   93,    2, 0x08,   11 /* Private */,
-      12,    1,   94,    2, 0x08,   12 /* Private */,
-      14,    1,   97,    2, 0x08,   14 /* Private */,
-      17,    1,  100,    2, 0x08,   16 /* Private */,
+       4,    0,   88,    2, 0x0a,    3 /* Public */,
+       5,    2,   89,    2, 0x0a,    4 /* Public */,
+       8,    1,   94,    2, 0x0a,    7 /* Public */,
+       9,    0,   97,    2, 0x0a,    9 /* Public */,
+      10,    0,   98,    2, 0x08,   10 /* Private */,
+      11,    0,   99,    2, 0x08,   11 /* Private */,
+      12,    1,  100,    2, 0x08,   12 /* Private */,
+      14,    1,  103,    2, 0x08,   14 /* Private */,
+      15,    1,  106,    2, 0x08,   16 /* Private */,
+      18,    1,  109,    2, 0x08,   18 /* Private */,
 
  // signals: parameters
     QMetaType::Void,
@@ -105,8 +107,9 @@ Q_CONSTINIT static const uint qt_meta_data_ZN10MainWindowE[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, QMetaType::QString,   13,
-    QMetaType::Void, 0x80000000 | 15,   16,
-    QMetaType::Void, QMetaType::QString,   18,
+    QMetaType::Void, QMetaType::QString,   13,
+    QMetaType::Void, 0x80000000 | 16,   17,
+    QMetaType::Void, QMetaType::QString,   19,
 
        0        // eod
 };
@@ -142,6 +145,9 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         // method 'onDirectoryChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
+        // method 'onSongsDirectoryChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
         // method 'on_PlaylistsListWidget_itemClicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<QListWidgetItem *, std::false_type>,
@@ -166,8 +172,9 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 6: _t->on_Shrink_ResizeButton_clicked(); break;
         case 7: _t->on_CreatePlaylistButton_clicked(); break;
         case 8: _t->onDirectoryChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 9: _t->on_PlaylistsListWidget_itemClicked((*reinterpret_cast< std::add_pointer_t<QListWidgetItem*>>(_a[1]))); break;
-        case 10: _t->onSearchBarTextChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 9: _t->onSongsDirectoryChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 10: _t->on_PlaylistsListWidget_itemClicked((*reinterpret_cast< std::add_pointer_t<QListWidgetItem*>>(_a[1]))); break;
+        case 11: _t->onSearchBarTextChanged((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         default: ;
         }
     }
@@ -209,14 +216,14 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 11)
+        if (_id < 12)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 11;
+        _id -= 12;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 11)
+        if (_id < 12)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 11;
+        _id -= 12;
     }
     return _id;
 }
