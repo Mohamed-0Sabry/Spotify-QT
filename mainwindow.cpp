@@ -238,6 +238,9 @@ void MainWindow::setupIcons()
     ui->CreatePlaylistButton->setIcon((QIcon("./icons/CreatePlaylist.svg")));
     ui->CreatePlaylistButton->setIconSize(QSize(20, 20));
 
+
+
+    ui->Shrink_ResizeButton->setIcon((QIcon("./icons/CloseWidget.svg")));
 }
 
 void MainWindow::fetchSongsFromFolder(const QString &folderPath)
@@ -370,14 +373,7 @@ void MainWindow::processSongMetadata(const QFileInfo &fileInfo, QMediaPlayer *te
 
 void MainWindow::on_Shrink_ResizeButton_clicked()
 {
-
-    if(isShrunk){
-        ui->Shrink_ResizeButton->setIcon((QIcon("")));
-    }else{
-        ui->Shrink_ResizeButton->setIcon((QIcon("")));
-    }
-
-
+    // Animation for resizing the entire CurrentPlayingWidgetSongs
     animation = new QPropertyAnimation(ui->CurrentPlayingWidgetSongs, "maximumWidth");
     animation->setDuration(800);
     animation->setEasingCurve(QEasingCurve::OutCubic);
@@ -389,7 +385,59 @@ void MainWindow::on_Shrink_ResizeButton_clicked()
     animation->setEndValue(targetWidth);
 
     animation->start(QAbstractAnimation::DeleteWhenStopped);
+
+    // Toggle icon
+    if (isShrunk) {
+        ui->Shrink_ResizeButton->setIcon(QIcon("./icons/CloseWidget.svg"));
+    } else {
+        ui->Shrink_ResizeButton->setIcon(QIcon("./icons/OpenWidget.svg"));
+    }
     isShrunk = !isShrunk;
+
+    // Opacity animation for specific widgets
+    QList<QWidget*> widgetsToFade = {
+        ui->CurrentPlayingSongImageWidget,
+        ui->PlayingSongControlsAndInfoWidget,
+        ui->SongInfoWidget
+    };
+
+    for (QWidget* widget : widgetsToFade) {
+        QGraphicsOpacityEffect* opacityEffect = new QGraphicsOpacityEffect(widget);
+        widget->setGraphicsEffect(opacityEffect);
+
+        QPropertyAnimation* fadeAnimation = new QPropertyAnimation(opacityEffect, "opacity");
+        fadeAnimation->setDuration(600);
+        fadeAnimation->setEasingCurve(QEasingCurve::OutCubic);
+        fadeAnimation->setStartValue(isShrunk ? 1.0 : 0.0);
+        fadeAnimation->setEndValue(isShrunk ? 0.0 : 1.0);
+
+        fadeAnimation->start(QAbstractAnimation::DeleteWhenStopped);
+    }
+
+    // Specific animation for CurrentPlayingPlaylistName - width and opacity
+    QGraphicsOpacityEffect* playlistNameOpacityEffect = new QGraphicsOpacityEffect(ui->CurrentPlayingPlaylistName);
+    ui->CurrentPlayingPlaylistName->setGraphicsEffect(playlistNameOpacityEffect);
+
+    QParallelAnimationGroup* playlistNameAnimationGroup = new QParallelAnimationGroup();
+
+    // Opacity animation
+    QPropertyAnimation* opacityAnimation = new QPropertyAnimation(playlistNameOpacityEffect, "opacity");
+    opacityAnimation->setDuration(600);
+    opacityAnimation->setEasingCurve(QEasingCurve::OutCubic);
+    opacityAnimation->setStartValue(isShrunk ? 1.0 : 0.0);
+    opacityAnimation->setEndValue(isShrunk ? 0.0 : 1.0);
+
+    // Width animation
+    QPropertyAnimation* widthAnimation = new QPropertyAnimation(ui->CurrentPlayingPlaylistName, "maximumWidth");
+    widthAnimation->setDuration(600);
+    widthAnimation->setEasingCurve(QEasingCurve::OutCubic);
+    widthAnimation->setStartValue(isShrunk ? ui->CurrentPlayingPlaylistName->width() : 0);
+    widthAnimation->setEndValue(isShrunk ? 0 : ui->CurrentPlayingPlaylistName->sizeHint().width());
+
+    playlistNameAnimationGroup->addAnimation(opacityAnimation);
+    playlistNameAnimationGroup->addAnimation(widthAnimation);
+
+    playlistNameAnimationGroup->start(QAbstractAnimation::DeleteWhenStopped);
 }
 
 void MainWindow::on_CreatePlaylistButton_clicked()
@@ -437,43 +485,6 @@ void MainWindow::onSearchBarTextChanged(const QString &searchText)
     songs = filteredSongs;
     // Refresh the song list with filtered results
     populateSongs(ui->SongsListWidget, filteredSongs);
-}
-
-// wanting to connect this RefreshSongList function with Signal from search Bar
-void MainWindow::refreshSongList(const QList<SongData>& songsToDisplay)
-{
-
-    qDebug() << "Refresh song list is called ";
-    // Clear existing items in the song list widget
-    ui->SongsListWidget->clear();
-
-    // Populate the list with filtered songs
-    for (const SongData& song : songsToDisplay) {
-        // Create a new SongItem for each song
-        SongItem* songItem = new SongItem();
-
-        // Set the song data
-        bool isFavorited = false;
-
-        songItem->setSongData(
-            song.picture,
-            song.name,
-            song.author,
-            song.length,
-            isFavorited
-            );
-
-        // Create a list widget item and set the custom widget
-        QListWidgetItem* listItem = new QListWidgetItem(ui->SongsListWidget);
-        listItem->setSizeHint(songItem->sizeHint());
-        ui->SongsListWidget->setItemWidget(listItem, songItem);
-    }
-
-    // Optional: Show a message if no songs match the search
-    if (songsToDisplay.isEmpty()) {
-        QListWidgetItem* noResultsItem = new QListWidgetItem("No songs found");
-        ui->SongsListWidget->addItem(noResultsItem);
-    }
 }
 
 void MainWindow::onSongStartedPlaying(const QString& songPath)

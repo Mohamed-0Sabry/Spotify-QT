@@ -442,7 +442,7 @@ border-radius:10%;</string>
         <number>20</number>
        </property>
        <item>
-        <widget class="QWidget" name="widget_6" native="true">
+        <widget class="QWidget" name="CurrentPlayListNameWidget" native="true">
          <layout class="QHBoxLayout" name="horizontalLayout">
           <property name="spacing">
            <number>4</number>
@@ -478,8 +478,20 @@ border-radius:10%;</string>
           </item>
           <item>
            <widget class="QPushButton" name="Shrink_ResizeButton">
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
             <property name="text">
              <string/>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>30</width>
+              <height>30</height>
+             </size>
             </property>
            </widget>
           </item>

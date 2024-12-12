@@ -43,6 +43,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
+    icons/CloseWidget.svg \
     icons/CreatePlaylist.svg \
     icons/PauseSong.svg \
     icons/PlayNextSong.svg \

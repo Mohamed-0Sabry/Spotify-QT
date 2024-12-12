@@ -88,7 +88,8 @@ OBJECTS       = release/audiocontrols.o \
 		release/moc_searchmanager.o \
 		release/moc_songitem.o
 
-DIST          = icons/CreatePlaylist.svg \
+DIST          = icons/CloseWidget.svg \
+		icons/CreatePlaylist.svg \
 		icons/PauseSong.svg \
 		icons/PlayNextSong.svg \
 		icons/PlayPreviousSong.svg \

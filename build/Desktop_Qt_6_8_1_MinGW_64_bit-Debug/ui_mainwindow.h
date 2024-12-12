@@ -54,7 +54,7 @@ public:
     QListWidget *SongsListWidget;
     QWidget *CurrentPlayingWidgetSongs;
     QVBoxLayout *verticalLayout;
-    QWidget *widget_6;
+    QWidget *CurrentPlayListNameWidget;
     QHBoxLayout *horizontalLayout;
     QLabel *CurrentPlayingPlaylistName;
     QPushButton *Shrink_ResizeButton;
@@ -403,13 +403,13 @@ public:
         verticalLayout->setSpacing(0);
         verticalLayout->setObjectName("verticalLayout");
         verticalLayout->setContentsMargins(-1, 20, -1, 20);
-        widget_6 = new QWidget(CurrentPlayingWidgetSongs);
-        widget_6->setObjectName("widget_6");
-        horizontalLayout = new QHBoxLayout(widget_6);
+        CurrentPlayListNameWidget = new QWidget(CurrentPlayingWidgetSongs);
+        CurrentPlayListNameWidget->setObjectName("CurrentPlayListNameWidget");
+        horizontalLayout = new QHBoxLayout(CurrentPlayListNameWidget);
         horizontalLayout->setSpacing(4);
         horizontalLayout->setObjectName("horizontalLayout");
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        CurrentPlayingPlaylistName = new QLabel(widget_6);
+        CurrentPlayingPlaylistName = new QLabel(CurrentPlayListNameWidget);
         CurrentPlayingPlaylistName->setObjectName("CurrentPlayingPlaylistName");
         QFont font;
         font.setPointSize(26);
@@ -420,13 +420,16 @@ public:
 
         horizontalLayout->addWidget(CurrentPlayingPlaylistName);
 
-        Shrink_ResizeButton = new QPushButton(widget_6);
+        Shrink_ResizeButton = new QPushButton(CurrentPlayListNameWidget);
         Shrink_ResizeButton->setObjectName("Shrink_ResizeButton");
+        Shrink_ResizeButton->setCursor(QCursor(Qt::CursorShape::PointingHandCursor));
+        Shrink_ResizeButton->setStyleSheet(QString::fromUtf8(""));
+        Shrink_ResizeButton->setIconSize(QSize(30, 30));
 
         horizontalLayout->addWidget(Shrink_ResizeButton);
 
 
-        verticalLayout->addWidget(widget_6);
+        verticalLayout->addWidget(CurrentPlayListNameWidget);
 
         CurrentPlayingSongImageWidget = new QWidget(CurrentPlayingWidgetSongs);
         CurrentPlayingSongImageWidget->setObjectName("CurrentPlayingSongImageWidget");

@@ -11,12 +11,14 @@
 #include <QFileDialog>
 #include <QAudioOutput>
 #include <QListWidget>
+#include <QPropertyAnimation>
+#include <QGraphicsOpacityEffect>
+#include <QParallelAnimationGroup>
 #include <QScrollBar>
 #include <QHBoxLayout>
 #include <QStyle>
 #include <QPixmap>
 #include <QIcon>
-#include <QPropertyAnimation>
 #include <QDir>
 #include <QMediaPlayer>
 #include <QMediaMetaData>
@@ -92,6 +94,7 @@ private:
     bool isPlayingSong;
     bool isShrunk;
     int currentSongIndex;
+    int originalPlaylistNameWidth;
     QString playlistDirectory = QDir::currentPath() + "/playlists";
     QString songsDirectory = QDir::currentPath() + "/Songs";
 };

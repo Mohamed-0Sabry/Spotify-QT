@@ -32,6 +32,7 @@ void SongItem::setSongData(const QString &picturePath, const QString &name, cons
     shadowEffect->setColor(Qt::black);
     shadowEffect->setOffset(0, 0);
     ui->pictureLabel->setGraphicsEffect(shadowEffect);
+
     if(isFavorited){
         ui->favorite->setIcon(QIcon("./icons/heartfilled.svg"));
     }else{
