@@ -1,0 +1,10 @@
+{
+    "createdAt": "2024-12-10T17:31:24",
+    "description": "",
+    "lastModified": "2024-12-10T17:31:24",
+    "name": "TwoSongs",
+    "songPaths": [
+        "D:/Study/ENGINEERING/Computer Engineering/Programming/Project/spoti/Songs/EminemWithoutMe.mp3",
+        "D:/Study/ENGINEERING/Computer Engineering/Programming/Project/spoti/Songs/NF.mp3"
+    ]
+}
